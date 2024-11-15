@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
-import Main from "./components/Main";
-import Header from "./components/Header";
+import Main from "./components/main/Main";
+import Header from "./components/header/Header";
 
 function App() {
   const [user, setUser] = useState("");

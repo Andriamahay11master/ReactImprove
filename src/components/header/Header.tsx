@@ -1,4 +1,8 @@
-const Header = ({ user }) => {
+import "./header.scss";
+interface UserProps {
+  user: any;
+}
+const Header = ({ user }: UserProps) => {
   return (
     <div className="headerWrapper">
       <img src={user?.picture?.medium} alt="img" />
