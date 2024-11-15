@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
+import Main from "./components/Main";
+import Header from "./components/Header";
 
 function App() {
   const [user, setUser] = useState("");
@@ -7,18 +9,17 @@ function App() {
   const getData = () => {
     fetch("https://randomuser.me/api/")
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setUser(data.results[0]));
   };
 
   useEffect(() => {
     getData();
   }, []);
+
   return (
     <div className="app">
-      <h1>Name</h1>
-      <img src="" alt="" />
-      <p>Mail</p>
-      <button onClick={getData}>Click</button>
+      <Header user={user} />
+      <Main {...user} />
     </div>
   );
 }
