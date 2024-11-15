@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import "./App.scss";
 import Main from "./components/main/Main";
 import Header from "./components/header/Header";
+import { UserType } from "./model/UserType";
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState<UserType>();
 
   const getData = () => {
     fetch("https://randomuser.me/api/")
@@ -14,12 +15,13 @@ function App() {
 
   useEffect(() => {
     getData();
+    console.log(typeof user);
   }, []);
 
   return (
     <div className="app">
       <Header user={user} />
-      <Main {...user} />
+      <Main {...user} getData={getData} />
     </div>
   );
 }

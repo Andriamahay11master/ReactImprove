@@ -17,6 +17,7 @@ interface MainProps {
     age: number;
     date: string;
   };
+  getData: () => void;
 }
 const Main = ({
   picture,
@@ -25,6 +26,7 @@ const Main = ({
   phone,
   location,
   registered,
+  getData,
 }: MainProps) => {
   return (
     <div className="cardWrapper">
@@ -47,6 +49,7 @@ const Main = ({
           <p>{new Date(registered?.date).toLocaleDateString()}</p>
         </div>
       </div>
+      <button onClick={getData}>Get Data</button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
+import { UserType } from "../../model/UserType";
 import "./header.scss";
 interface UserProps {
-  user: any;
+  user: UserType;
 }
 const Header = ({ user }: UserProps) => {
   return (
